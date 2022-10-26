@@ -2,7 +2,7 @@ import {View, Image, TouchableOpacity, StyleSheet} from 'react-native';
 
 const Header = ({onBackPress}) => {
   return (
-    <View style={{paddingLeft: 10}}>
+    <View style={styles.container}>
       <TouchableOpacity onPress={onBackPress} style={styles.backContainer}>
         <Image
           style={styles.icon}
@@ -14,7 +14,11 @@ const Header = ({onBackPress}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {paddingLeft: 10},
+  container: {paddingLeft: 10,
+    position:  "absolute",
+    top: 0,
+    zIndex: 1,
+  },
   backContainer: {
     width: 30,
     height: 30,

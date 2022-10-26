@@ -30,27 +30,30 @@ class MovieDetailScreen extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Spinner
-          visible={this.props.isLoading}
-          textContent={'Đang tải...'}
-          textStyle={styles.spinnerTextStyle}
-        />
+      <View style={{flex: 1}}>
         <Header onBackPress={() => this.props.navigation.goBack()} />
-        <MovieInfo movieDetail={this.props.movieDetail} />
-        <TouchableOpacity
-          style={styles.playButton}
-          onPress={() => console.log('pressed')}>
-          <Image
-            style={styles.icon}
-            source={require('../../../assets/icons/play.png')}
+        <ScrollView style={styles.container}>
+          <Spinner
+            visible={this.props.isLoading}
+            textContent={'Đang tải...'}
+            textStyle={styles.spinnerTextStyle}
           />
-          <View style={{width: 5}} />
-          <Text style={styles.text}>Xem phim</Text>
-        </TouchableOpacity>
-        <ButtonRow />
-        <RelatedMovies />
-      </ScrollView>
+
+          <MovieInfo movieDetail={this.props.movieDetail} />
+          <TouchableOpacity
+            style={styles.playButton}
+            onPress={() => console.log('pressed')}>
+            <Image
+              style={styles.icon}
+              source={require('../../../assets/icons/play.png')}
+            />
+            <View style={{width: 5}} />
+            <Text style={styles.text}>Xem phim</Text>
+          </TouchableOpacity>
+          <ButtonRow />
+          <RelatedMovies />
+        </ScrollView>
+      </View>
     );
   }
 }

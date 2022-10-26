@@ -38,7 +38,9 @@ const CarouselWithPagination = ({items}) => {
         autoPlay={true}
         data={items}
         scrollAnimationDuration={1000}
-        onSnapToItem={index => setActiveIndex(index)}
+        onSnapToItem={(index) => {
+          setActiveIndex(index);
+        }}
         renderItem={({item, index}) => (
           <CarouselItem item={item} index={index} />
         )}
@@ -55,7 +57,11 @@ const CarouselWithPagination = ({items}) => {
 
         <TouchableOpacity
           style={styles.playButton}
-          onPress={() => navigation.navigate('MovieDetail')}>
+          onPress={() =>
+            navigation.navigate('MovieDetail', {
+              id: activeIndex,
+            })
+          }>
           <Image
             style={styles.icon}
             source={require('../../../../assets/icons/play.png')}
@@ -66,7 +72,11 @@ const CarouselWithPagination = ({items}) => {
 
         <TouchableOpacity
           style={{alignItems: 'center'}}
-          onPress={() => navigation.navigate('MovieDetail')}>
+          onPress={() =>
+            navigation.navigate('MovieDetail', {
+              id: activeIndex,
+            })
+          }>
           <Image
             style={styles.icon}
             source={require('../../../../assets/icons/info.png')}

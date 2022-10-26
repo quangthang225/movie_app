@@ -133,14 +133,14 @@ class HomeScreen extends Component {
           <View>
             <CarouselWithPagination items={this.state.carouselItems} />
             <MovieList
-              items={this.props.movieList}
+              items={this.props.movieList.slice(0, 5)}
               title={'Phim mới cập nhật'}
             />
             <MovieList items={movieItems} title={'Phim nổi bật'} />
             <Banner items={this.state.bannerItems} />
-            <MovieList items={movieItems} title={'Phim được ưa thích'} />
+            <MovieList items={this.props.movieList.slice(6, 10)} title={'Phim được ưa thích'} />
             <MovieList items={movieItems} title={'Phim hành động'} />
-            <MovieList items={movieItems} title={'Phim bộ đặc sắc'} />
+            {/* <MovieList items={movieItems} title={'Phim bộ đặc sắc'} /> */}
           </View>
         </View>
       </ScrollView>
