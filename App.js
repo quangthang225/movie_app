@@ -27,18 +27,19 @@
 
 // export default App;
 
-import { View, Button, Text, Animated } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {View, Button, Text, Animated} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import {
   HomeScreen,
   MovieScreen,
-  MovieDetailScreen
+  MovieDetailScreen,
+  VideoPlayerScreen,
 } from './src/screens';
 
-function Home({ navigation }) {
+function Home({navigation}) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Home screen</Text>
       <Button
         title="Go to Profile"
@@ -48,29 +49,29 @@ function Home({ navigation }) {
   );
 }
 
-function Profile({ navigation }) {
+function Profile({navigation}) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Profile screen</Text>
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );
 }
 
-const forFade = ({ current, next }) => {
+const forFade = ({current, next}) => {
   const opacity = Animated.add(
     current.progress,
-    next ? next.progress : 0
+    next ? next.progress : 0,
   ).interpolate({
     inputRange: [0, 1, 2],
     outputRange: [0, 1, 0],
   });
 
   return {
-    leftButtonStyle: { opacity },
-    rightButtonStyle: { opacity },
-    titleStyle: { opacity },
-    backgroundStyle: { opacity },
+    leftButtonStyle: {opacity},
+    rightButtonStyle: {opacity},
+    titleStyle: {opacity},
+    backgroundStyle: {opacity},
   };
 };
 
@@ -85,27 +86,34 @@ function MyStack() {
         options={{
           // headerTintColor: 'white',
           // headerStyle: { backgroundColor: 'tomato' },
-          headerShown: false
+          headerShown: false,
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="Movie"
         component={MovieScreen}
         options={{
-          headerShown: false
+          headerShown: false,
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="MovieDetail"
         component={MovieDetailScreen}
         options={{
-          headerShown: false
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="VideoPlayer"
+        component={VideoPlayerScreen}
+        options={{
+          headerShown: false,
         }}
       />
       <Stack.Screen
         name="Profile"
         component={Profile}
-        options={{ headerStyleInterpolator: forFade }}
+        options={{headerStyleInterpolator: forFade}}
       />
     </Stack.Navigator>
   );

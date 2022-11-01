@@ -42,7 +42,11 @@ class MovieDetailScreen extends Component {
           <MovieInfo movieDetail={this.props.movieDetail} />
           <TouchableOpacity
             style={styles.playButton}
-            onPress={() => console.log('pressed')}>
+            onPress={() =>
+              this.props.navigation.navigate('VideoPlayer', {
+                item: this.props.movieDetail,
+              })
+            }>
             <Image
               style={styles.icon}
               source={require('../../../assets/icons/play.png')}

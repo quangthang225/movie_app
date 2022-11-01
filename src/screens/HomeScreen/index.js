@@ -138,7 +138,10 @@ class HomeScreen extends Component {
             />
             <MovieList items={movieItems} title={'Phim nổi bật'} />
             <Banner items={this.state.bannerItems} />
-            <MovieList items={this.props.movieList.slice(6, 10)} title={'Phim được ưa thích'} />
+            <MovieList
+              items={this.props.movieList.slice(6, 10)}
+              title={'Phim được ưa thích'}
+            />
             <MovieList items={movieItems} title={'Phim hành động'} />
             {/* <MovieList items={movieItems} title={'Phim bộ đặc sắc'} /> */}
           </View>
@@ -158,7 +161,7 @@ const mapDispatchToProps = dispatch =>
 
 const mapStateToProps = state => ({
   movieList: state.homeReducer.movieList,
-  isLoading: state.homeReducer.isLoading
+  isLoading: state.homeReducer.isLoading,
 });
 
 const styles = StyleSheet.create({
@@ -167,8 +170,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   spinnerTextStyle: {
-    color: "white"
-  }
+    color: 'white',
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

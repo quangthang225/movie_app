@@ -29,6 +29,8 @@ const CarouselWithPagination = ({items}) => {
     );
   };
 
+  console.log(items);
+
   return (
     <View style={styles.container}>
       <Carousel
@@ -38,7 +40,7 @@ const CarouselWithPagination = ({items}) => {
         autoPlay={true}
         data={items}
         scrollAnimationDuration={1000}
-        onSnapToItem={(index) => {
+        onSnapToItem={index => {
           setActiveIndex(index);
         }}
         renderItem={({item, index}) => (

@@ -26,4 +26,7 @@ target 'demo_app' do
   post_install do |installer|
     react_native_post_install(installer)
   end
+
+  # Third party deps podspec link
+  # pod 'react-native-video', :path => '../node_modules/react-native-video/react-native-video.podspec'
 end

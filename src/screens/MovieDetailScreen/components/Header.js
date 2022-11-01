@@ -14,11 +14,7 @@ const Header = ({onBackPress}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {paddingLeft: 10,
-    position:  "absolute",
-    top: 0,
-    zIndex: 1,
-  },
+  container: {paddingLeft: 10, position: 'absolute', top: 0, zIndex: 1},
   backContainer: {
     width: 30,
     height: 30,
